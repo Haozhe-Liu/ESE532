@@ -1,0 +1,21 @@
+// make base ./base
+Total latency of Scale is: 9.38442e+06 ns.
+Total latency of Filter is: 1.24366e+08 ns.
+Total latency of Differentiate is: 2.01158e+07 ns.
+Total latency of Compress is: 7.47321e+07 ns.
+Total time taken by the loop is: 2.28612e+08 ns.
+---------------------------------------------------------------
+Average latency of Scale per loop iteration is: 93844.1 ns.
+Average latency of Filter per loop iteration is: 1.24366e+06 ns.
+Average latency of Differentiate per loop iteration is: 201158 ns.
+Average latency of Compress per loop iteration is: 747321 ns.
+Average latency of each loop iteration is: 2.28612e+06 ns.
+Application completed successfully.
+
+// make coarse ./coarse
+Total time taken by the loop is: 1.87144e+08 ns.
+Application completed successfully.
+
+// make pipeline2 ./pipeline2
+Total time taken by the loop is: 1.4356e+08 ns.
+Application completed successfully.
