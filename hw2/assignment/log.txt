@@ -1,0 +1,193 @@
+// -O0
+g++ -pg -Wall -g -O0 -Wno-unused-label  -o App_instrumented App.cpp Compress.cpp Differentiate.cpp Filter.cpp Scale.cpp  
+Executable App_instrumented compiled!
+Running ./App_instrumented to get gmon.out for gprof...
+Total latency of Filter_horizontal is: 4.17916e+07 ns.
+Total latency of Filter_vertical is: 4.05497e+07 ns.
+---------------------------------------------------------------
+Average latency of Filter_horizontal per loop iteration is: 4.17916e+07 ns.
+Average latency of Filtime_Filter_vertical per loop iteration is: 4.05497e+07 ns.
+---------------------------------------------------------------
+Total latency of Scale is: 8.675e+06 ns.
+Total latency of Differentiate is: 1.07106e+07 ns.
+Total latency of Compress is: 3.88388e+07 ns.
+Total time taken by the loop is: 1.40681e+08 ns.
+---------------------------------------------------------------
+Average latency of Scale per loop iteration is: 8.675e+06 ns.
+Average latency of Differtime_Differentiate per loop iteration is: 1.07106e+07 ns.
+Average latency of Compretime_Compress per loop iteration is: 3.88388e+07 ns.
+Average latency of each loop iteration is: 1.40681e+08 ns.
+Application completed successfully.
+Running gprof -p ./App_instrumented...
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 30.79      0.04     0.04        1    40.03    40.03  Filter_vertical(unsigned char const*, unsigned char*)
+ 30.79      0.08     0.04        1    40.03    40.03  Filter_horizontal(unsigned char const*, unsigned char*)
+ 30.79      0.12     0.04        1    40.03    40.03  Compress(unsigned char const*, unsigned char*)
+  7.70      0.13     0.01        1    10.01    10.01  Differentiate(unsigned char const*, unsigned char*)
+  0.00      0.13     0.00       24     0.00     0.00  std::chrono::duration<long, std::ratio<1l, 1000000000l> >::count() const
+  0.00      0.13     0.00       24     0.00     0.00  std::chrono::duration<long, std::ratio<1l, 1000000000l> >::duration<long, void>(long const&)
+  0.00      0.13     0.00       12     0.00     0.00  std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::time_since_epoch() const
+  0.00      0.13     0.00       12     0.00     0.00  std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::time_point()
+  0.00      0.13     0.00       12     0.00     0.00  std::chrono::duration_values<long>::zero()
+  0.00      0.13     0.00       12     0.00     0.00  std::chrono::duration<long, std::ratio<1l, 1000000000l> >::zero()
+  0.00      0.13     0.00        6     0.00     0.00  stopwatch::avg_latency()
+  0.00      0.13     0.00        6     0.00     0.00  stopwatch::stop()
+  0.00      0.13     0.00        6     0.00     0.00  stopwatch::start()
+  0.00      0.13     0.00        6     0.00     0.00  stopwatch::latency()
+  0.00      0.13     0.00        6     0.00     0.00  stopwatch::stopwatch()
+  0.00      0.13     0.00        6     0.00     0.00  std::enable_if<std::chrono::__is_duration<std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::value, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::duration_cast<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&)
+  0.00      0.13     0.00        6     0.00     0.00  std::chrono::duration<long, std::ratio<1l, 1000000000l> > std::chrono::__duration_cast_impl<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::ratio<1l, 1l>, long, true, true>::__cast<long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&)
+  0.00      0.13     0.00        6     0.00     0.00  std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >(std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&)
+  0.00      0.13     0.00        6     0.00     0.00  std::common_type<std::chrono::duration<long, std::ratio<1l, 1000000000l> >, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >::type std::chrono::operator-<long, std::ratio<1l, 1000000000l>, long, std::ratio<1l, 1000000000l> >(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&, std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&)
+  0.00      0.13     0.00        1     0.00     0.00  _GLOBAL__sub_I_Coefficients
+  0.00      0.13     0.00        1     0.00     0.00  _GLOBAL__sub_I_Data
+  0.00      0.13     0.00        1     0.00     0.00  Store_data(char const*, int, unsigned int)
+  0.00      0.13     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      0.13     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      0.13     0.00        1     0.00     0.00  Scale(unsigned char const*, unsigned char*)
+  0.00      0.13     0.00        1     0.00    80.06  Filter(unsigned char const*, unsigned char*)
+  0.00      0.13     0.00        1     0.00     0.00  Load_data()
+
+// -O2 2021/9/13
+g++ -pg -Wall -g -O2 -Wno-unused-label  -o App_instrumented App.cpp Compress.cpp Differentiate.cpp Filter.cpp Scale.cpp  
+Executable App_instrumented compiled!
+Running ./App_instrumented to get gmon.out for gprof...
+Total latency of Filter_horizontal is: 8.883e+06 ns.
+Total latency of Filter_vertical is: 1.16287e+07 ns.
+---------------------------------------------------------------
+Average latency of Filter_horizontal per loop iteration is: 8.883e+06 ns.
+Average latency of Filtime_Filter_vertical per loop iteration is: 1.16287e+07 ns.
+---------------------------------------------------------------
+Total latency of Scale is: 2.505e+06 ns.
+Total latency of Differentiate is: 3.2023e+06 ns.
+Total latency of Compress is: 2.27493e+07 ns.
+Total time taken by the loop is: 4.90966e+07 ns.
+---------------------------------------------------------------
+Average latency of Scale per loop iteration is: 2.505e+06 ns.
+Average latency of Differtime_Differentiate per loop iteration is: 3.2023e+06 ns.
+Average latency of Compretime_Compress per loop iteration is: 2.27493e+07 ns.
+Average latency of each loop iteration is: 4.90966e+07 ns.
+Application completed successfully.
+Running gprof -p ./App_instrumented...
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 50.07      0.02     0.02                             Compress(unsigned char const*, unsigned char*)
+ 25.04      0.03     0.01        1    10.01    10.01  Filter_vertical(unsigned char const*, unsigned char*)
+ 25.04      0.04     0.01        1    10.01    10.01  Filter_horizontal(unsigned char const*, unsigned char*)
+  0.00      0.04     0.00        1     0.00     0.00  _GLOBAL__sub_I_Coefficients
+  0.00      0.04     0.00        1     0.00     0.00  _GLOBAL__sub_I_Data
+
+
+// UNROLL THE LOOP
+
+Executable App_instrumented compiled!
+Running ./App_instrumented to get gmon.out for gprof...
+Total latency of Filter_horizontal is: 5.3836e+06 ns.
+Total latency of Filter_vertical is: 5.0764e+06 ns.
+---------------------------------------------------------------
+Average latency of Filter_horizontal per loop iteration is: 5.3836e+06 ns.
+Average latency of Filtime_Filter_vertical per loop iteration is: 5.0764e+06 ns.
+---------------------------------------------------------------
+Total latency of Scale is: 2.1213e+06 ns.
+Total latency of Filter is: 1.06276e+07 ns.
+Total latency of Differentiate is: 3.2879e+06 ns.
+Total latency of Compress is: 1.96666e+07 ns.
+Total time taken by the loop is: 3.57035e+07 ns.
+---------------------------------------------------------------
+Average latency of Scale per loop iteration is: 2.1213e+06 ns.
+Average latency of Differentiate per loop iteration is: 3.2879e+06 ns.
+Average latency of Filter per loop iteration is: 1.06276e+07 ns.
+Average latency of Compress per loop iteration is: 1.96666e+07 ns.
+Average latency of each loop iteration is: 3.57035e+07 ns.
+Application completed successfully.
+Running gprof -p ./App_instrumented...
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+ 50.07      0.01     0.01                             Differentiate(unsigned char const*, unsigned char*)
+ 50.07      0.02     0.01                             Compress(unsigned char const*, unsigned char*)
+  0.00      0.02     0.00        1     0.00     0.00  _GLOBAL__sub_I_Coefficients
+  0.00      0.02     0.00        1     0.00     0.00  _GLOBAL__sub_I_Data
+  0.00      0.02     0.00        1     0.00     0.00  Filter_vertical(unsigned char const*, unsigned char*)
+  0.00      0.02     0.00        1     0.00     0.00  Filter_horizontal(unsigned char const*, unsigned char*)
+
+
+// -O2 9/15 update input.bin
+Executable App_instrumented compiled!
+Running ./App_instrumented to get gmon.out for gprof...
+Total latency of Filter_horizontal is: 7.66648e+07 ns.
+Total latency of Filter_vertical is: 1.02568e+08 ns.
+---------------------------------------------------------------
+Average latency of Filter_horizontal per loop iteration is: 7.66648e+07 ns.
+Average latency of Filtime_Filter_vertical per loop iteration is: 1.02568e+08 ns.
+---------------------------------------------------------------
+Total latency of Scale is: 2.21019e+07 ns.
+Total latency of Filter is: 1.79467e+08 ns.
+Total latency of Differentiate is: 9.31577e+07 ns.
+Total latency of Compress is: 3.14546e+08 ns.
+Total time taken by the loop is: 6.09273e+08 ns.
+---------------------------------------------------------------
+Average latency of Scale per loop iteration is: 2.21019e+07 ns.
+Average latency of Differentiate per loop iteration is: 9.31577e+07 ns.
+Average latency of Filter per loop iteration is: 1.79467e+08 ns.
+Average latency of Compress per loop iteration is: 3.14546e+08 ns.
+Average latency of each loop iteration is: 6.09273e+08 ns.
+Application completed successfully.
+Running gprof -p ./App_instrumented...
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 52.54      0.32     0.32                             Compress(unsigned char const*, unsigned char*)
+ 16.42      0.42     0.10        1   100.15   100.15  Filter_vertical(unsigned char const*, unsigned char*)
+ 14.78      0.51     0.09                             Differentiate(unsigned char const*, unsigned char*)
+ 13.13      0.59     0.08        1    80.12    80.12  Filter_horizontal(unsigned char const*, unsigned char*)
+  3.28      0.61     0.02                             Scale(unsigned char const*, unsigned char*)
+  0.00      0.61     0.00        1     0.00     0.00  _GLOBAL__sub_I_Coefficients
+  0.00      0.61     0.00        1     0.00     0.00  _GLOBAL__sub_I_Data
+
+
+// second time
+Executable App_instrumented compiled!
+Running ./App_instrumented to get gmon.out for gprof...
+Total latency of Filter_horizontal is: 7.95216e+07 ns.
+Total latency of Filter_vertical is: 1.0685e+08 ns.
+---------------------------------------------------------------
+Average latency of Filter_horizontal per loop iteration is: 7.95216e+07 ns.
+Average latency of Filtime_Filter_vertical per loop iteration is: 1.0685e+08 ns.
+---------------------------------------------------------------
+Total latency of Scale is: 2.19187e+07 ns.
+Total latency of Filter is: 1.86549e+08 ns.
+Total latency of Differentiate is: 1.11064e+08 ns.
+Total latency of Compress is: 3.31106e+08 ns.
+Total time taken by the loop is: 6.50637e+08 ns.
+---------------------------------------------------------------
+Average latency of Scale per loop iteration is: 2.19187e+07 ns.
+Average latency of Differentiate per loop iteration is: 1.11064e+08 ns.
+Average latency of Filter per loop iteration is: 1.86549e+08 ns.
+Average latency of Compress per loop iteration is: 3.31106e+08 ns.
+Average latency of each loop iteration is: 6.50637e+08 ns.
+Application completed successfully.
+Running gprof -p ./App_instrumented...
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 50.84      0.33     0.33                             Compress(unsigned char const*, unsigned char*)
+ 16.95      0.44     0.11        1   110.16   110.16  Filter_vertical(unsigned char const*, unsigned char*)
+ 16.95      0.55     0.11                             Differentiate(unsigned char const*, unsigned char*)
+ 12.33      0.63     0.08        1    80.12    80.12  Filter_horizontal(unsigned char const*, unsigned char*)
+  3.08      0.65     0.02                             Scale(unsigned char const*, unsigned char*)
+  0.00      0.65     0.00        1     0.00     0.00  _GLOBAL__sub_I_Coefficients
+  0.00      0.65     0.00        1     0.00     0.00  _GLOBAL__sub_I_Data
